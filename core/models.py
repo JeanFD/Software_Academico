@@ -8,9 +8,11 @@ class Pessoa(models.Model):
     cpf = models.CharField(max_length=12, verbose_name='CPF')
     data_nasc = models.DateField(verbose_name='Data de Nascimento')
     email = models.CharField(max_length=200, verbose_name='E-mail')
-    # cidade = models.ForeignKey("Cidade", on_delete=models.CASCADE, verbose_name='Cidade da pessoa')
+    cidade = models.ForeignKey("Cidade", on_delete=models.CASCADE, verbose_name='Cidade da pessoa')
     ocupacao = models.ForeignKey("OcupacaoPessoas", on_delete=models.CASCADE, verbose_name='Ocupação da pessoa')
 
+class Estudante(Pessoa):
+    RA = models.CharField(max_length=16, verbose_name='Registro Acadêmico')
 
 class OcupacaoPessoas(models.Model):
     nome = models.CharField(max_length=100, verbose_name='Ocupação de pessoas')
@@ -76,10 +78,12 @@ class Turma(models.Model):
     nome = models.CharField(max_length=100, verbose_name='Nome')
     turno = models.ForeignKey(Turno, on_delete=models.CASCADE, verbose_name='Turno')
 
+class UF(models.Model):
+    sigla = models.CharField(max_length=2, verbose_name='Unidade Federativa')
 
 class Cidade(models.Model):
     nome = models.CharField(max_length=100, verbose_name='Nome da Cidade')
-    uf = models.CharField(max_length=2, verbose_name='Unidade Federativa')
+    uf = models.ForeignKey(UF, on_delete=models.CASCADE, verbose_name='Unidade Federativa')
 
 class Ocorrencia(models.Model):
     descricao = models.CharField(max_length=200, verbose_name='Descrição')
