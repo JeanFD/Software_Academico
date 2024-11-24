@@ -8,11 +8,12 @@ class Pessoa(models.Model):
     cpf = models.CharField(max_length=12, verbose_name='CPF')
     data_nasc = models.DateField(verbose_name='Data de Nascimento')
     email = models.CharField(max_length=200, verbose_name='E-mail')
-    cidade = models.ForeignKey("Cidade", on_delete=models.CASCADE, verbose_name='Cidade da pessoa')
+    cidade = models.ForeignKey("Cidade", on_delete=models.CASCADE, verbose_name='Cidade da pessoa', null=True)
     ocupacao = models.ForeignKey("OcupacaoPessoas", on_delete=models.CASCADE, verbose_name='Ocupação da pessoa')
 
-class Estudante(Pessoa):
+class Aluno(Pessoa):
     RA = models.CharField(max_length=16, verbose_name='Registro Acadêmico')
+    Turma = models.ForeignKey("Turma", on_delete=models.CASCADE, verbose_name='Turma')
 
 class OcupacaoPessoas(models.Model):
     nome = models.CharField(max_length=100, verbose_name='Ocupação de pessoas')

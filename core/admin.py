@@ -9,26 +9,27 @@ class CursoInline(admin.TabularInline):
     model = Curso
     extra = 1
 
-class DisciplinaInline(admin.TabularInline):
-    model = Disciplina
-    extra = 1
+# class DisciplinaInline(admin.TabularInline):
+#     model = Disciplina
+#     extra = 1
 
 class AvaliacaoInline(admin.TabularInline):
     model = Avaliacao
     extra = 1
 
+class AlunosInline(admin.TabularInline):
+    model = Aluno
+    extra = 1
 
+class CidadeInline(admin.TabularInline):
+    model = Cidade
+    extra = 1
 
-class DisciplinaInline(admin.TabularInline):
-    model = Disciplina
+class CursoDisciplinaInline(admin.TabularInline):
+    model = DisciplinaPorCurso
     extra = 1
 
 
-class PessoaAdmin(admin.ModelAdmin):
-    list_display = ('nome',)
-    search_fields = ('nome',)
-
-    inlines = [OcupacaoInline]
 
 class OcupacaoAdmin(admin.ModelAdmin):
     list_display = ('nome',)
@@ -36,16 +37,53 @@ class OcupacaoAdmin(admin.ModelAdmin):
 
     inlines = [PessoaInline]
 
+class InstituicaoAdmin(admin.ModelAdmin):
+    list_display = ('nome',)
+    search_fields = ('nome',)
+
+    inlines = [CursoInline]
+
+class AreaSaberAdmin(admin.ModelAdmin):
+    list_display = ('nome',)
+    search_fields = ('nome',)
+
+    inlines = [CursoInline]
+
+class DisciplinaAdmin(admin.ModelAdmin):
+    list_display = ('nome',)
+    search_fields = ('nome',)
+
+    inlines = [AvaliacaoInline]
+
+class TurmaAdmin(admin.ModelAdmin):
+    list_display = ('nome',)
+    search_fields = ('nome',)
+
+    inlines = [AlunosInline]
+
+class UfAdmin(admin.ModelAdmin):
+    list_display = ('nome',)
+    search_fields = ('nome',)
+
+    inlines = [CidadeInline]
+
+class CursoAdmin(admin.ModelAdmin):
+    list_display = ('nome',)
+    search_fields = ('nome',)
+
+    inlines = [CursoDisciplinaInline]
+
+
 admin.site.register(Pessoa)
 admin.site.register(OcupacaoPessoas, OcupacaoAdmin)
-admin.site.register(InstituicaoEnsino)
-admin.site.register(AreaSaber)
-admin.site.register(Curso)
+admin.site.register(InstituicaoEnsino, InstituicaoAdmin)
+admin.site.register(AreaSaber, AreaSaberAdmin)
+admin.site.register(Curso, CursoAdmin)
 admin.site.register(Turno)
-admin.site.register(Disciplina)
+admin.site.register(Disciplina, DisciplinaAdmin)
 admin.site.register(Matricula)
 admin.site.register(Frequencia)
-admin.site.register(Turma)
+admin.site.register(Turma, TurmaAdmin)
 admin.site.register(Cidade)
 admin.site.register(Ocorrencia)
 admin.site.register(DisciplinaPorCurso)
