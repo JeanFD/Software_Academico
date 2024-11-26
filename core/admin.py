@@ -17,8 +17,8 @@ class AvaliacaoInline(admin.TabularInline):
     model = Avaliacao
     extra = 1
 
-class AlunosInline(admin.TabularInline):
-    model = Aluno
+class EstudantesInline(admin.TabularInline):
+    model = Estudante
     extra = 1
 
 class CidadeInline(admin.TabularInline):
@@ -59,7 +59,7 @@ class TurmaAdmin(admin.ModelAdmin):
     list_display = ('nome',)
     search_fields = ('nome',)
 
-    inlines = [AlunosInline]
+    inlines = [EstudantesInline]
 
 class UfAdmin(admin.ModelAdmin):
     list_display = ('nome',)
@@ -74,7 +74,7 @@ class CursoAdmin(admin.ModelAdmin):
     inlines = [CursoDisciplinaInline]
 
 
-admin.site.register(Pessoa)
+admin.site.register(Estudante)
 admin.site.register(OcupacaoPessoas, OcupacaoAdmin)
 admin.site.register(InstituicaoEnsino, InstituicaoAdmin)
 admin.site.register(AreaSaber, AreaSaberAdmin)
@@ -85,6 +85,7 @@ admin.site.register(Matricula)
 admin.site.register(Frequencia)
 admin.site.register(Turma, TurmaAdmin)
 admin.site.register(Cidade)
+admin.site.register(UF)
 admin.site.register(Ocorrencia)
 admin.site.register(DisciplinaPorCurso)
 admin.site.register(TipoAvaliacao)

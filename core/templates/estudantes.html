@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+    {% block content %}
+        {% include 'navbar.html' %}
+
+        <div class="container mt-5">
+            <h1 class="mb-4">Estudantes</h1>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Nome do Pai</th>
+                        <th scope="col">Nome da Mãe</th>
+                        <th scope="col">CPF</th>
+                        <th scope="col">Data de Nascimento</th>
+                        <th scope="col">E-mail</th>
+                        <th scope="col">Cidade</th>
+                        <th scope="col">Ocupação</th>
+                        <th scope="col">Registro</th>
+                        <th scope="col">Turma</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for livro in livros %}
+                    <tr>
+                        <td>{{ livro.nome }}</td>
+                        <td>{{ livro.autor }}</td>
+                        <td>{{ livro.editora }}</td>
+                        <td>{{ livro.genero}}</td>
+                        <td>{{ livro.preco }}</td>
+                        <td>{{ livro.data_plub }}</td>
+                             </tr>
+                    
+                    {% endfor %}
+                </tbody>
+            </table>
+          </div>
+        
+        {% endblock %}
