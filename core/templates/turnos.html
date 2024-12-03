@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+    {% block content %}
+        {% include 'navbar.html' %}
+
+        <div class="container mt-5">
+            <h1 class="mb-4">Turnos</h1>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Nome</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for e in turnos %}
+                    <tr>
+                        <td>{{ e.nome }}</td>
+                    </tr>
+                    
+                    {% endfor %}
+                </tbody>
+            </table>
+          </div>
+        
+        {% endblock %}

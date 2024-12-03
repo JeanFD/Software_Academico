@@ -15,19 +15,23 @@
                         <th scope="col">E-mail</th>
                         <th scope="col">Cidade</th>
                         <th scope="col">Ocupação</th>
-                        <th scope="col">Registro</th>
+                        <th scope="col">RA</th>
                         <th scope="col">Turma</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for livro in livros %}
+                    {% for e in estudantes %}
                     <tr>
-                        <td>{{ livro.nome }}</td>
-                        <td>{{ livro.autor }}</td>
-                        <td>{{ livro.editora }}</td>
-                        <td>{{ livro.genero}}</td>
-                        <td>{{ livro.preco }}</td>
-                        <td>{{ livro.data_plub }}</td>
+                        <td>{{ e.nome }}</td>
+                        <td>{{ e.nome_do_pai }}</td>
+                        <td>{{ e.nome_da_mae }}</td>
+                        <td>{{ e.cpf }}</td>
+                        <td>{{ e.data_nasc }}</td>
+                        <td>{{ e.email }}</td>
+                        <td>{{ e.cidade }}</td>
+                        <td>{{ e.ocupacao }}</td>
+                        <td>{{ e.ra }}</td>
+                        <td>{{ e.turma }}</td>
                              </tr>
                     
                     {% endfor %}

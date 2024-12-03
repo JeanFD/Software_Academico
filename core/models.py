@@ -5,7 +5,7 @@ class Pessoa(models.Model):
     nome = models.CharField(max_length=100, verbose_name='Nome')
     nome_do_pai = models.CharField(max_length=100, verbose_name='Nome do pai')
     nome_da_mae = models.CharField(max_length=100, verbose_name='Nome da mãe')
-    cpf = models.CharField(max_length=12, verbose_name='CPF')
+    cpf = models.CharField(max_length=14, verbose_name='CPF')
     data_nasc = models.DateField(verbose_name='Data de Nascimento')
     email = models.CharField(max_length=200, verbose_name='E-mail')
     cidade = models.ForeignKey("Cidade", on_delete=models.CASCADE, verbose_name='Cidade da pessoa', null=True)
@@ -19,8 +19,8 @@ class Pessoa(models.Model):
 
 
 class Estudante(Pessoa):
-    RA = models.CharField(max_length=16, verbose_name='Registro Acadêmico')
-    Turma = models.ForeignKey("Turma", on_delete=models.CASCADE, verbose_name='Turma')
+    ra = models.CharField(max_length=16, verbose_name='Registro Acadêmico')
+    turma = models.ForeignKey("Turma", on_delete=models.CASCADE, verbose_name='Turma')
 
     class meta:
         verbose_name = 'Aluno'
@@ -50,7 +50,7 @@ class AreaSaber(models.Model):
     class meta:
             verbose_name = 'Area do Saber'
             verbose_name_plural = 'Areas do Saber'
-            
+
     def __str__(self):
         return self.nome
 

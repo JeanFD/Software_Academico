@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+    {% block content %}
+        {% include 'navbar.html' %}
+
+        <div class="container mt-5">
+            <h1 class="mb-4">Ocorrências</h1>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Descrição</th>
+                        <th scope="col">Data de Aplicação</th>
+                        <th scope="col">Curso</th>
+                        <th scope="col">Disciplina</th>
+                        <th scope="col">Pessoa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for e in ocorrencias %}
+                    <tr>
+                        <td>{{ e.descricao }}</td>
+                        <td>{{ e.data }}</td>
+                        <td>{{ e.curso }}</td>
+                        <td>{{ e.disciplina }}</td>
+                        <td>{{ e.pessoa }}</td>
+                    </tr>
+                    
+                    {% endfor %}
+                </tbody>
+            </table>
+          </div>
+        
+        {% endblock %}
