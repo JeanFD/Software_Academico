@@ -20,14 +20,6 @@ class OcupacoesView(View):
         }
         return render(request, 'ocupacoes.html', contexto)
 
-class OcupacoesView(View):
-    def get(self,request):
-        contexto = {
-            'areas': AreaSaber.objects.all(),
-        }
-        return render(request, 'areassaber.html', contexto)
-
-
 class InstituicoesView(View):
     def get(self, request):
         contexto = {
