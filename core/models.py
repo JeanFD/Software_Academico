@@ -132,7 +132,7 @@ class Ocorrencia(models.Model):
     data = models.DateField(verbose_name='Data de aplicação')
     curso = models.ForeignKey(Curso, on_delete=models.CASCADE, verbose_name='Curso')
     disciplina = models.ForeignKey(Disciplina, on_delete=models.CASCADE, verbose_name='Disciplina')
-    pessoa = models.ForeignKey(Pessoa, on_delete=models.CASCADE, verbose_name='Pessoa')
+    estudante = models.ForeignKey(Estudante, on_delete=models.CASCADE, verbose_name='Estudante')
 
     def __str__(self):
         return self.descricao
